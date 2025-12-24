@@ -1,0 +1,1178 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Florijan Qosja — Software Engineer</title>
+    <meta name="description"
+        content="Portfolio of Florijan Qosja — Software Engineer. Projects, experience, and contact." />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Florijan Qosja — Software Engineer" />
+    <meta property="og:description" content="Projects, experience, and contact." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/55300217" />
+    <meta property="og:url" content="https://florijanqosja.github.io" />
+
+    <!-- Favicons (optional) -->
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%91%8B%3C/text%3E%3C/svg%3E">
+
+    <style>
+        :root {
+            --bg: #0b0f17;
+            --bg2: #0f1726;
+            --card: rgba(255, 255, 255, .06);
+            --card2: rgba(255, 255, 255, .09);
+            --text: rgba(255, 255, 255, .92);
+            --muted: rgba(255, 255, 255, .70);
+            --faint: rgba(255, 255, 255, .48);
+            --border: rgba(255, 255, 255, .12);
+            --shadow: 0 18px 50px rgba(0, 0, 0, .45);
+
+            --brand: #7c3aed;
+            /* violet */
+            --brand2: #22c55e;
+            /* green accent */
+            --ring: rgba(124, 58, 237, .35);
+
+            --radius: 18px;
+            --max: 1080px;
+            --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        }
+
+        [data-theme="light"] {
+            --bg: #f7f8fb;
+            --bg2: #ffffff;
+            --card: rgba(15, 23, 42, .06);
+            --card2: rgba(15, 23, 42, .10);
+            --text: rgba(15, 23, 42, .92);
+            --muted: rgba(15, 23, 42, .72);
+            --faint: rgba(15, 23, 42, .55);
+            --border: rgba(15, 23, 42, .14);
+            --shadow: 0 18px 50px rgba(2, 6, 23, .12);
+
+            --ring: rgba(124, 58, 237, .22);
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--sans);
+            color: var(--text);
+            background:
+                radial-gradient(1200px 600px at 15% -10%, rgba(124, 58, 237, .30), transparent 60%),
+                radial-gradient(1000px 500px at 85% 0%, rgba(34, 197, 94, .18), transparent 55%),
+                linear-gradient(180deg, var(--bg), var(--bg2));
+            min-height: 100vh;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        a:hover {
+            opacity: .92
+        }
+
+        .wrap {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 28px 22px 80px
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(14px);
+            background: linear-gradient(180deg, rgba(0, 0, 0, .20), transparent);
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        [data-theme="light"] .nav {
+            background: linear-gradient(180deg, rgba(255, 255, 255, .70), transparent);
+            border-bottom: 1px solid rgba(15, 23, 42, .08);
+        }
+
+        .nav-inner {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 14px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 650;
+            letter-spacing: .2px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 30%, #fff, rgba(255, 255, 255, .0) 60%),
+                linear-gradient(135deg, var(--brand), var(--brand2));
+            box-shadow: 0 0 0 6px rgba(124, 58, 237, .12);
+        }
+
+        .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 999px;
+            object-fit: cover;
+            box-shadow: 0 0 0 6px rgba(124, 58, 237, .12);
+            flex: 0 0 36px;
+            display: inline-block;
+        }
+
+        .links {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: flex-end
+        }
+
+        .links a {
+            font-size: 14px;
+            color: var(--muted);
+            padding: 8px 10px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+        }
+
+        .links a:hover {
+            color: var(--text);
+            border-color: var(--border);
+            background: var(--card)
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--text);
+            box-shadow: none;
+            font-size: 14px;
+            transition: transform .15s ease, background .15s ease, border-color .15s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            background: var(--card2);
+            border-color: rgba(255, 255, 255, .18)
+        }
+
+        [data-theme="light"] .btn:hover {
+            border-color: rgba(15, 23, 42, .18)
+        }
+
+        .btn-primary {
+            border-color: rgba(124, 58, 237, .45);
+            background: linear-gradient(135deg, rgba(124, 58, 237, .22), rgba(34, 197, 94, .14));
+            box-shadow: 0 10px 30px rgba(124, 58, 237, .18);
+        }
+
+        .btn-primary:hover {
+            border-color: rgba(124, 58, 237, .70)
+        }
+
+        .icon {
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            flex: 0 0 16px;
+        }
+
+        .hero {
+            padding: 42px 0 18px
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1.4fr .9fr;
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        .grid-halves {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        @media (max-width: 920px) {
+            .grid {
+                grid-template-columns: 1fr
+            }
+            .grid-halves {
+                grid-template-columns: 1fr
+            }
+
+            .links {
+                justify-content: flex-start
+            }
+        }
+
+        .card {
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, .04);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        [data-theme="light"] .card {
+            background: rgba(255, 255, 255, .75);
+        }
+
+        .card-in {
+            padding: 22px
+        }
+
+        .card-in h3 {
+            margin: 12px 0 8px;
+            font-size: 18px;
+            line-height: 1.3;
+        }
+
+        .card-in p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .kicker {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--muted);
+            font-size: 13px;
+            font-family: var(--mono);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--muted);
+            font-size: 13px;
+            font-family: var(--mono);
+        }
+
+        .pulse {
+            width: 9px;
+            height: 9px;
+            border-radius: 999px;
+            background: var(--brand2);
+            box-shadow: 0 0 0 0 rgba(34, 197, 94, .45);
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, .45)
+            }
+
+            70% {
+                box-shadow: 0 0 0 12px rgba(34, 197, 94, 0)
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0)
+            }
+        }
+
+        h1 {
+            margin: 14px 0 8px;
+            font-size: clamp(28px, 4.6vw, 46px);
+            line-height: 1.05;
+            letter-spacing: -0.8px;
+        }
+
+        .lead {
+            margin: 0;
+            color: var(--muted);
+            font-size: clamp(15px, 1.9vw, 18px);
+            line-height: 1.6;
+            max-width: 62ch;
+        }
+
+        .cta {
+            margin-top: 18px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .stat {
+            border: 1px solid var(--border);
+            background: var(--card);
+            border-radius: 14px;
+            padding: 12px 12px;
+        }
+
+        .stat b {
+            display: block;
+            font-size: 18px
+        }
+
+        .stat span {
+            display: block;
+            margin-top: 4px;
+            color: var(--muted);
+            font-size: 12px;
+            font-family: var(--mono)
+        }
+
+        .side {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .mini h3 {
+            margin: 0 0 8px;
+            font-size: 14px;
+            color: var(--muted);
+            font-family: var(--mono)
+        }
+
+        .list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            border-radius: 14px;
+            padding: 12px 12px;
+        }
+
+        .row .left {
+            display: flex;
+            flex-direction: column;
+            gap: 4px
+        }
+
+        .row .title {
+            font-size: 14px;
+            font-weight: 600
+        }
+
+        .row .sub {
+            font-size: 12px;
+            color: var(--muted);
+            font-family: var(--mono)
+        }
+
+        .row .pill {
+            font-size: 12px;
+            color: var(--muted);
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, .04);
+            padding: 6px 10px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        section {
+            padding: 28px 0
+        }
+
+        .sec-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .sec-head h2 {
+            margin: 0;
+            font-size: 18px;
+            letter-spacing: -0.2px;
+        }
+
+        .sec-head p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px
+        }
+
+        @media (max-width: 980px) {
+            .cards {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media (max-width: 640px) {
+            .cards {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .proj {
+            border: 1px solid var(--border);
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            min-height: 170px;
+            transition: transform .15s ease, background .15s ease, border-color .15s ease;
+        }
+
+        .proj:hover {
+            transform: translateY(-2px);
+            background: var(--card2);
+            border-color: rgba(255, 255, 255, .18)
+        }
+
+        [data-theme="light"] .proj:hover {
+            border-color: rgba(15, 23, 42, .18)
+        }
+
+        .proj h3 {
+            margin: 0;
+            font-size: 15px
+        }
+
+        .proj p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.55
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: auto
+        }
+
+        .tag {
+            font-size: 12px;
+            color: var(--muted);
+            border: 1px solid var(--border);
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-family: var(--mono);
+            background: rgba(255, 255, 255, .04);
+        }
+
+        .proj .actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 6px
+        }
+
+        .link {
+            font-size: 13px;
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 8px 10px;
+            background: rgba(255, 255, 255, .03);
+        }
+
+        .link:hover {
+            background: rgba(255, 255, 255, .07)
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        .mono {
+            font-family: var(--mono)
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        .job {
+            border: 1px solid var(--border);
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 16px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 12px;
+        }
+
+        .job h3 {
+            margin: 0;
+            font-size: 15px
+        }
+
+        .job .meta {
+            color: var(--muted);
+            font-size: 12px;
+            font-family: var(--mono);
+            margin-top: 6px
+        }
+
+        .job ul {
+            margin: 10px 0 0 18px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.55
+        }
+
+        .job .when {
+            white-space: nowrap;
+            color: var(--muted);
+            font-size: 12px;
+            font-family: var(--mono)
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px
+        }
+
+        .chip {
+            border: 1px solid var(--border);
+            background: var(--card);
+            border-radius: 999px;
+            padding: 8px 12px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        footer {
+            padding: 26px 0 0;
+            color: var(--faint);
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            border-top: 1px solid rgba(255, 255, 255, .08);
+            margin-top: 18px;
+        }
+
+        [data-theme="light"] footer {
+            border-top: 1px solid rgba(15, 23, 42, .10)
+        }
+
+        .kbd {
+            font-family: var(--mono);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 4px 8px;
+            background: var(--card);
+            color: var(--muted);
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--ring);
+            outline-offset: 3px;
+            border-radius: 12px;
+        }
+
+        .proj-head {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+
+        .proj-logo {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            object-fit: cover;
+            background: var(--card2);
+        }
+
+        .job-content {
+            display: flex;
+            gap: 14px;
+        }
+
+        .job-logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            object-fit: cover;
+            flex-shrink: 0;
+            background: var(--card2);
+        }
+
+        .bullets {
+            margin: 14px 0 0 18px;
+            padding: 0;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .bullets li {
+            margin: 6px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <div class="nav-inner">
+            <div class="brand">
+                <img class="avatar" src="https://avatars.githubusercontent.com/u/55300217" alt="Florijan Qosja" />
+                <span id="navName">Florijan Qosja</span>
+            </div>
+
+            <div class="links">
+                <a href="#projects">Projects</a>
+                <a href="#research">Research</a>
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+
+                <button class="btn" id="themeBtn" type="button" aria-label="Toggle theme">
+                    <span class="icon" aria-hidden="true">🌓</span>
+                    Theme
+                </button>
+
+                <a class="btn btn-primary" href="#contact">
+                    <span class="icon" aria-hidden="true">✉️</span>
+                    Let’s talk
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <main class="wrap">
+        <!-- HERO -->
+        <section class="hero" id="top">
+            <div class="grid">
+                <div class="card">
+                    <div class="card-in">
+                        <div class="kicker">
+                            <span class="mono muted">Based in London • Remote-friendly</span>
+                        </div>
+
+                        <h1>
+                            I ship production-grade software — fast, reliable, and built to scale.
+                        </h1>
+
+                        <p class="lead">
+                            I’m <b>Florijan Qosja</b>, a <b>Full-Stack Engineer</b> who loves ownership: taking ideas from
+                            zero → shipped, and keeping them healthy in production. I build clean systems, readable code,
+                            and pragmatic architecture that teams can iterate on.
+                        </p>
+
+                        <ul class="bullets" aria-label="What I’m known for">
+                            <li><b>Shipping</b> end-to-end features with high quality, tests, and strong DX.</li>
+                            <li><b>Scalable backends</b>: APIs, data models, performance, reliability, and observability.</li>
+                            <li><b>AI enthusiast</b>: I build with AI tooling, understand modern ML stacks, and apply them
+                                product-first (evaluation, latency, cost, and UX).</li>
+                        </ul>
+
+                        <div class="cta">
+                            <a class="btn btn-primary" href="https://github.com/florijanqosja" target="_blank"
+                                rel="noreferrer">
+                                <span class="icon" aria-hidden="true">↗</span>
+                                GitHub
+                            </a>
+                            <a class="btn" href="https://www.linkedin.com/in/florijan-qosja" target="_blank"
+                                rel="noreferrer">
+                                <span class="icon" aria-hidden="true">↗</span>
+                                LinkedIn
+                            </a>
+                            <a class="btn" href="static/resume.pdf" target="_blank" rel="noreferrer">
+                                <span class="icon" aria-hidden="true">⬇</span>
+                                Resume
+                            </a>
+                            <button class="btn" id="copyEmailBtn" type="button">
+                                <span class="icon" aria-hidden="true">📋</span>
+                                Copy email
+                            </button>
+                            <span class="muted mono" id="copyStatus" aria-live="polite"></span>
+                        </div>
+
+                        <div class="stats" aria-label="Quick stats">
+                            <div class="stat">
+                                <b>5+ yrs</b>
+                                <span>shipping production software</span>
+                            </div>
+                            <div class="stat">
+                                <b>Prod mindset</b>
+                                <span>quality • testing • reliability</span>
+                            </div>
+                            <div class="stat">
+                                <b>AI/ML</b>
+                                <span>tools • models • shipping value</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="side">
+                    <div class="card mini">
+                        <div class="card-in">
+                            <h3>Now</h3>
+                            <div class="list">
+                                <div class="row">
+                                    <div class="left">
+                                        <div class="title">Building</div>
+                                        <div class="sub">Production features & platforms</div>
+                                    </div>
+                                    <div class="pill">2025</div>
+                                </div>
+                                <div class="row">
+                                    <div class="left">
+                                        <div class="title">Exploring</div>
+                                        <div class="sub">AI products • evaluation • LLM tooling</div>
+                                    </div>
+                                    <div class="pill">daily</div>
+                                </div>
+                                <div class="row">
+                                    <div class="left">
+                                        <div class="title">Focus areas</div>
+                                        <div class="sub">Full-stack • Backend • AI product</div>
+                                    </div>
+                                    <div class="pill">always</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mini">
+                        <div class="card-in">
+                            <h3>Links</h3>
+                            <div class="list">
+                                <a class="row" href="https://github.com/florijanqosja" target="_blank" rel="noreferrer">
+                                    <div class="left">
+                                        <div class="title">GitHub</div>
+                                        <div class="sub">code, OSS</div>
+                                    </div>
+                                    <div class="pill">↗</div>
+                                </a>
+                                <a class="row" href="https://www.linkedin.com/in/florijan-qosja" target="_blank"
+                                    rel="noreferrer">
+                                    <div class="left">
+                                        <div class="title">LinkedIn</div>
+                                        <div class="sub">thoughts, updates</div>
+                                    </div>
+                                    <div class="pill">↗</div>
+                                </a>
+                                <a class="row" href="#projects">
+                                    <div class="left">
+                                        <div class="title">Featured work</div>
+                                        <div class="sub">3 projects below</div>
+                                    </div>
+                                    <div class="pill">↓</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- RESEARCH -->
+        <section id="research">
+            <div class="sec-head">
+                <div>
+                    <h2>Research</h2>
+                    <p>Academic contributions and publications.</p>
+                </div>
+            </div>
+
+            <div class="grid-halves">
+                <div class="card">
+                    <div class="card-in">
+                        <div class="kicker">
+                            <span class="mono muted">Published Paper • 2025</span>
+                        </div>
+                        <h3>Sentiment Analysis from Speech in the Albanian Language</h3>
+                        <p>
+                            A deep learning approach for sentiment analysis in low-resource scenarios. 
+                            We explored methods to overcome challenges using deep learning techniques applied to speech data, 
+                            employing architectures like HuBERT and wav2vec 2.0.
+                        </p>
+                        <div class="cta" style="margin-top: 20px;">
+                            <a class="btn btn-primary" href="static/paper.pdf" target="_blank">
+                                <span class="icon">📄</span> Read Paper (PDF)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-in">
+                        <div class="kicker">
+                            <span class="mono muted">Project Paper • 2023</span>
+                        </div>
+                        <h3>Development of an Albanian Language Transcriber using Artificial Intelligence</h3>
+                        <p>
+                            BSc Project Paper focusing on creating an Automatic Speech Recognition (ASR) system for the Albanian language.
+                            Investigated various AI models and techniques to improve transcription accuracy for this low-resource language.
+                        </p>
+                        <div class="cta" style="margin-top: 20px;">
+                            <a class="btn btn-primary" href="static/project_paper.pdf" target="_blank">
+                                <span class="icon">📄</span> Read Project Paper (PDF)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects">
+            <div class="sec-head">
+                <div>
+                    <h2>Projects</h2>
+                    <p>Real products and systems — built to ship and scale.</p>
+                </div>
+            </div>
+
+            <div class="cards">
+                <article class="proj">
+                    <div class="proj-head">
+                        <img src="https://uneduashqiperine.com/_next/image?url=%2Flogo.png&w=64&q=75" class="proj-logo" alt="Albanian ASR">
+                        <h3>Albanian ASR</h3>
+                    </div>
+                    <p>AI speech-to-text for Albanian with a product-friendly interface and deployable pipeline — focused on accuracy, latency, and real-world usability.</p>
+                    <div class="tags">
+                        <span class="tag">Python</span><span class="tag">ASR</span><span class="tag">ML</span>
+                    </div>
+                    <div class="actions">
+                        <a class="link" href="https://github.com/florijanqosja/albanian-asr" target="_blank"
+                            rel="noreferrer">Code ↗</a>
+                        <a class="link" href="https://uneduashqiperine.com/" target="_blank" rel="noreferrer">Live App
+                            ↗</a>
+                    </div>
+                </article>
+
+                <article class="proj">
+                    <div class="proj-head">
+                        <img src="https://lexolib.com/logo-icon.png" class="proj-logo" alt="LexoLib">
+                        <h3>LexoLib</h3>
+                    </div>
+                    <p>An AI-powered reading companion that turns long or complex content into clear, usable insight — designed around fast UX, reliability, and “explain it like I’m shipping it.”</p>
+                    <div class="tags">
+                        <span class="tag">TypeScript</span><span class="tag">React</span><span
+                            class="tag">Postgres</span>
+                    </div>
+                    <div class="actions">
+                        <a class="link" href="https://lexolib.com/" target="_blank" rel="noreferrer">Live App ↗</a>
+                        <a class="link" href="#contact">Ask for Code ↗</a>
+                    </div>
+                </article>
+
+                <article class="proj">
+                    <div class="proj-head">
+                        <img src="static/dovoLogo.png" class="proj-logo" alt="DovoAi">
+                        <h3>DovoAi</h3>
+                    </div>
+                    <p>A unified, searchable interface across code, infra, product docs, and user data — built to help teams find answers quickly and ship with confidence.</p>
+                    <div class="tags">
+                        <span class="tag">Node</span><span class="tag">API</span><span class="tag">DX</span>
+                    </div>
+                    <div class="actions">
+                        <span class="link" aria-disabled="true" style="pointer-events:none;opacity:.55;">Coming soon</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section id="experience">
+            <div class="sec-head">
+                <div>
+                    <h2>Experience</h2>
+                    <p>Focus on outcomes, not task lists.</p>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="job">
+                    <div class="job-content">
+                        <img src="static/levelLogo.jpeg" class="job-logo" alt="Level">
+                        <div>
+                            <h3>Senior Software Engineer — Level Financial Technology</h3>
+                            <div class="meta">TypeScript • React • Docker • CI/CD • AWS • Postgres • MongoDB • GitLab •
+                                DevOps</div>
+                            <ul>
+                                <li>Lead architecture and delivery of user-facing features and platform services.</li>
+                                <li>Owned CI/CD, containerization (Docker), deployments and operational reliability.</li>
+                                <li>Designed and maintained scalable REST APIs and PostgreSQL/MongoDB data models.</li>
+                                <li>Improved developer workflows with GitLab pipelines, monitoring and observability.</li>
+                                <li>Mentored engineers, defined requirements, and drove cross‑team technical decisions.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="when">May 2025 → Present</div>
+                </div>
+                <div class="job">
+                    <div class="job-content">
+                        <img src="static/levelLogo.jpeg" class="job-logo" alt="Level">
+                        <div>
+                            <h3>Full-Stack Engineer — Level Financial Technology</h3>
+                            <div class="meta">JavaScript • TypeScript • React • Node • Docker • CI/CD • PostgreSQL • API
+                                Development</div>
+                            <ul>
+                                <li>Built core front-end flows in React and backend services (APIs) in Node/Python.</li>
+                                <li>Implemented end-to-end features, tests, and performance optimizations to raise
+                                    activation.</li>
+                                <li>Contributed to infra improvements: containerization, CI pipelines and deployments.</li>
+                                <li>Enhanced observability, code quality and participated in rigorous code reviews.</li>
+                                <li>Collaborated with product and stakeholders to define requirements and deliver value.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="when">May 2023 → Jun 2025</div>
+                </div>
+                <div class="job">
+                    <div class="job-content">
+                        <img src="static/iotonLogo.jpg" class="job-logo" alt="Ioton">
+                        <div>
+                            <h3>Full-Stack Engineer — Ioton</h3>
+                            <div class="meta">React • Python • MQTT • REST • IOT</div>
+                            <ul>
+                                <li>Built responsive React UIs and reusable components; integrated with REST APIs.</li>
+                                <li>Implemented Python back-end services with authentication, authorization and
+                                    observability.</li>
+                                <li>Designed MQTT publish/subscribe flows with message filtering and reliable delivery.</li>
+                                <li>Optimized performance via profiling, caching and backend bottleneck fixes.</li>
+                                <li>Ensured web accessibility (WCAG) and applied secure coding practices.</li>
+                                <li>Worked closely in cross‑functional teams, code reviews and product-driven delivery.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="when">Sep 2021 → May 2023</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills">
+            <div class="sec-head">
+                <div>
+                    <h2>Skills</h2>
+                    <p>What I’m comfortable owning in production.</p>
+                </div>
+            </div>
+
+            <div class="chips" aria-label="Skills list">
+                <span class="chip">TypeScript</span>
+                <span class="chip">JavaScript</span>
+                <span class="chip">Python</span>
+                <span class="chip">SQL</span>
+                <span class="chip">React</span>
+                <span class="chip">Next.js</span>
+                <span class="chip">HTML/CSS</span>
+                <span class="chip">Node.js</span>
+                <span class="chip">REST APIs</span>
+                <span class="chip">GraphQL</span>
+                <span class="chip">Auth (JWT/OAuth)</span>
+                <span class="chip">Postgres</span>
+                <span class="chip">MongoDB</span>
+                <span class="chip">Redis</span>
+                <span class="chip">Data modeling</span>
+                <span class="chip">System design</span>
+                <span class="chip">Performance</span>
+                <span class="chip">Caching</span>
+                <span class="chip">Queues / async jobs</span>
+                <span class="chip">Testing (unit/integration/e2e)</span>
+                <span class="chip">CI/CD</span>
+                <span class="chip">Docker</span>
+                <span class="chip">AWS</span>
+                <span class="chip">Linux</span>
+                <span class="chip">Git</span>
+                <span class="chip">Monitoring & observability</span>
+                <span class="chip">Logging/metrics/tracing</span>
+                <span class="chip">Secure coding</span>
+                <span class="chip">Accessibility (WCAG)</span>
+                <span class="chip">Product thinking</span>
+                <span class="chip">AI/ML fundamentals</span>
+                <span class="chip">LLMs & prompting</span>
+                <span class="chip">RAG</span>
+                <span class="chip">Model evaluation</span>
+                <span class="chip">Vector search</span>
+                <span class="chip">MLOps</span>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <div class="sec-head">
+                <div>
+                    <h2>Contact</h2>
+                    <p>Make it easy for someone to hire you.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-in">
+                    <p class="lead" style="margin-bottom:14px">
+                        Best way to reach me: <b id="emailText">qosjaflorijan@gmail.com</b>.
+                        I reply fast if the message is specific.
+                    </p>
+
+                    <div class="cta">
+                        <a class="btn btn-primary" id="mailBtn" href="mailto:qosjaflorijan@gmail.com">
+                            <span class="icon" aria-hidden="true">✉️</span>
+                            Email me
+                        </a>
+                        <button class="btn" id="copyEmailBtn2" type="button">
+                            <span class="icon" aria-hidden="true">📋</span>
+                            Copy email
+                        </button>
+                        <a class="btn" href="https://github.com/florijanqosja" target="_blank" rel="noreferrer">
+                            <span class="icon" aria-hidden="true">↗</span>
+                            GitHub
+                        </a>
+                        <a class="btn" href="https://www.linkedin.com/in/florijan-qosja" target="_blank"
+                            rel="noreferrer">
+                            <span class="icon" aria-hidden="true">↗</span>
+                            LinkedIn
+                        </a>
+                    </div>
+
+                    <p class="muted mono" style="margin-top:14px">
+                        Shortcut: press <span class="kbd">G</span> for GitHub, <span class="kbd">E</span> to copy email.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div>
+                © <span id="year"></span> <span id="footName">Florijan Qosja</span>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // ==== PERSONALIZE THESE ====
+        const profile = {
+            name: "Florijan Qosja",
+            email: "qosjaflorijan@gmail.com",
+            location: "London, UK",
+            github: "https://github.com/florijanqosja",
+            linkedin: "https://www.linkedin.com/in/florijan-qosja",
+            resume: "static/resume.pdf"
+        };
+
+        // ==== THEME ====
+        const root = document.documentElement;
+        const storedTheme = localStorage.getItem("theme");
+        if (storedTheme) root.setAttribute("data-theme", storedTheme);
+
+        document.getElementById("themeBtn").addEventListener("click", () => {
+            const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+            root.setAttribute("data-theme", next);
+            localStorage.setItem("theme", next);
+        });
+
+        // ==== FILL IN PROFILE ====
+        document.getElementById("navName").textContent = profile.name;
+        document.getElementById("footName").textContent = profile.name;
+
+        const emailText = document.getElementById("emailText");
+        emailText.textContent = profile.email;
+
+        const mailBtn = document.getElementById("mailBtn");
+        mailBtn.href = `mailto:${profile.email}`;
+
+        // Update external links in hero
+        const links = document.querySelectorAll('a[href="https://github.com/florijanqosja"]');
+        links.forEach(a => a.href = profile.github);
+
+        const linkedinLinks = document.querySelectorAll('a[href="https://www.linkedin.com/in/florijan-qosja"]');
+        linkedinLinks.forEach(a => a.href = profile.linkedin);
+
+        const resumeLinks = document.querySelectorAll('a[href="static/resume.pdf"]');
+        resumeLinks.forEach(a => a.href = profile.resume);
+
+        // ==== COPY EMAIL ====
+        const copy = async () => {
+            try {
+                await navigator.clipboard.writeText(profile.email);
+                const s = document.getElementById("copyStatus");
+                if (s) { s.textContent = "Copied!"; setTimeout(() => s.textContent = "", 1400); }
+            } catch (e) {
+                const s = document.getElementById("copyStatus");
+                if (s) s.textContent = "Copy failed (browser blocked).";
+            }
+        };
+        document.getElementById("copyEmailBtn").addEventListener("click", copy);
+        document.getElementById("copyEmailBtn2").addEventListener("click", copy);
+
+        // ==== KEYBOARD SHORTCUTS ====
+        window.addEventListener("keydown", (e) => {
+            if (e.target && (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA")) return;
+            if (e.key.toLowerCase() === "g") window.open(profile.github, "_blank", "noreferrer");
+            if (e.key.toLowerCase() === "e") copy();
+        });
+
+        // ==== FOOTER DATES ====
+        document.getElementById("year").textContent = new Date().getFullYear();
+        const updatedEl = document.getElementById("updated");
+        if (updatedEl) updatedEl.textContent = new Date().toISOString().slice(0, 10);
+    </script>
+</body>
+
+</html>
