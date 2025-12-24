@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="dark light" />
+    <meta name="color-scheme" content="light dark" />
     <title>Florijan Qosja — Software Engineer</title>
     <meta name="description"
         content="Portfolio of Florijan Qosja — Software Engineer. Projects, experience, and contact." />
@@ -33,9 +33,7 @@
             --shadow: 0 18px 50px rgba(0, 0, 0, .45);
 
             --brand: #7c3aed;
-            /* violet */
             --brand2: #22c55e;
-            /* green accent */
             --ring: rgba(124, 58, 237, .35);
 
             --radius: 18px;
@@ -116,6 +114,10 @@
             gap: 14px;
         }
 
+        .nav-toggle {
+            display: none;
+        }
+
         .brand {
             display: flex;
             align-items: center;
@@ -180,6 +182,10 @@
             cursor: pointer;
         }
 
+        .nav-toggle {
+            display: none;
+        }
+
         .btn:hover {
             transform: translateY(-1px);
             background: var(--card2);
@@ -203,8 +209,11 @@
         .icon {
             width: 16px;
             height: 16px;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             flex: 0 0 16px;
+            line-height: 1;
         }
 
         .hero {
@@ -235,6 +244,47 @@
 
             .links {
                 justify-content: flex-start
+            }
+        }
+
+        @media (max-width: 780px) {
+            .nav-inner {
+                flex-wrap: wrap;
+                align-items: center;
+            }
+
+            .nav-toggle {
+                display: inline-flex;
+                margin-left: auto;
+            }
+
+            .links {
+                width: 100%;
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                background: var(--card);
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+                padding: 10px;
+                gap: 10px;
+            }
+
+            .links.open {
+                display: flex;
+            }
+
+            .links a,
+            .links .btn {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .links a {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
             }
         }
 
@@ -325,6 +375,10 @@
             font-size: clamp(15px, 1.9vw, 18px);
             line-height: 1.6;
             max-width: 62ch;
+        }
+
+        #contact .lead {
+            max-width: none;
         }
 
         .cta {
@@ -679,7 +733,13 @@
                 <span id="navName">Florijan Qosja</span>
             </div>
 
-            <div class="links">
+            <button class="btn nav-toggle" id="menuToggle" type="button" aria-expanded="false"
+                aria-controls="navLinks">
+                <span class="icon" aria-hidden="true">☰</span>
+                Menu
+            </button>
+
+            <div class="links" id="navLinks">
                 <a href="#projects">Projects</a>
                 <a href="#research">Research</a>
                 <a href="#experience">Experience</a>
@@ -706,7 +766,7 @@
                 <div class="card">
                     <div class="card-in">
                         <div class="kicker">
-                            <span class="mono muted">Based in London • Remote-friendly</span>
+                            <span class="mono muted">Based in London, UK • Remote-friendly</span>
                         </div>
 
                         <h1>
@@ -941,7 +1001,7 @@
             <div class="sec-head">
                 <div>
                     <h2>Experience</h2>
-                    <p>Focus on outcomes, not task lists.</p>
+                    <p>Recent roles and impact.</p>
                 </div>
             </div>
 
@@ -1060,7 +1120,7 @@
             <div class="sec-head">
                 <div>
                     <h2>Contact</h2>
-                    <p>Make it easy for someone to hire you.</p>
+                    <p>Let’s connect.</p>
                 </div>
             </div>
 
@@ -1119,13 +1179,33 @@
         // ==== THEME ====
         const root = document.documentElement;
         const storedTheme = localStorage.getItem("theme");
-        if (storedTheme) root.setAttribute("data-theme", storedTheme);
+        const initialTheme = storedTheme || "light";
+        root.setAttribute("data-theme", initialTheme);
 
         document.getElementById("themeBtn").addEventListener("click", () => {
             const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
             root.setAttribute("data-theme", next);
             localStorage.setItem("theme", next);
         });
+
+        // ==== NAV MENU (MOBILE) ====
+        const navLinks = document.getElementById("navLinks");
+        const menuToggle = document.getElementById("menuToggle");
+        if (menuToggle && navLinks) {
+            const closeNav = () => {
+                navLinks.classList.remove("open");
+                menuToggle.setAttribute("aria-expanded", "false");
+            };
+
+            menuToggle.addEventListener("click", () => {
+                const isOpen = navLinks.classList.toggle("open");
+                menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            });
+
+            navLinks.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", closeNav);
+            });
+        }
 
         // ==== FILL IN PROFILE ====
         document.getElementById("navName").textContent = profile.name;
